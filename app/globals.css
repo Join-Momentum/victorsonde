@@ -1,26 +1,115 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+ * Design tokens — verified brand values from `07-design-system.md` §3.
+ * Recognized Tailwind v4 theme namespaces (--color-*, --font-*, --text-*,
+ * --radius-*, --container-*, --shadow-*, --ease-*) live in `@theme inline`
+ * below so they also generate utility classes (bg-brand-primary, etc).
+ * Tokens with no Tailwind namespace (z-index, icon sizes, motion duration,
+ * focus ring) live in the plain `:root` block further down.
+ * No raw hex outside this file — components consume tokens only.
+ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Brand — verified from the supplied logo asset pack (VSIconPry/VSLogo set) */
+  --color-brand-primary: #f19817; /* orange — never carries text on a light bg */
+  --color-brand-secondary: #1a1a1a; /* neutral black, mono/print lockup variant */
+  --color-brand-accent: #f19817; /* single-accent system; focus rings use this */
+  --color-brand-dark: #241a18; /* warm near-black from the primary lockup */
+  --color-brand-light: #ffffff;
+  --color-brand-primary-hover: color-mix(in srgb, var(--color-brand-primary) 88%, var(--color-brand-dark));
+  --color-brand-primary-tint: color-mix(in srgb, var(--color-brand-primary) 12%, var(--color-brand-light));
+  /* 7.44:1 on #F19817 — white text on orange measures 2.28:1 and fails WCAG */
+  --color-on-primary: var(--color-brand-dark);
+
+  /* Semantic surfaces + text */
+  --color-bg: var(--color-brand-light);
+  --color-bg-alt: color-mix(in srgb, var(--color-brand-light) 96%, var(--color-brand-dark));
+  --color-surface: var(--color-brand-light);
+  --color-surface-raised: #ffffff;
+  --color-ink: var(--color-brand-dark);
+  --color-ink-muted: color-mix(in srgb, var(--color-brand-dark) 64%, var(--color-brand-light));
+  --color-ink-inverse: var(--color-brand-light);
+  --color-border: color-mix(in srgb, var(--color-brand-dark) 14%, transparent);
+
+  /* Feedback — provisional, not yet brand-confirmed (DEVELOPER DECISION REQUIRED) */
+  --color-success: #1e7f4f;
+  --color-warning: #b25e09;
+  --color-error: #b3261e;
+  --color-info: #1b5fa8;
+
+  /* Typography — no brand typeface confirmed yet (BRAND ASSET REQUIRED).
+     System stacks are a neutral placeholder, not a proposal — swap the
+     moment a typeface is chosen, nothing else should need to change. */
+  --font-display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-utility: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Fluid type scale above 30px, per spec */
+  --text-3xl: clamp(1.625rem, 1.5rem + 0.5vw, 1.875rem);
+  --text-4xl: clamp(1.875rem, 1.6rem + 1vw, 2.375rem);
+  --text-5xl: clamp(2.25rem, 1.8rem + 1.8vw, 3rem);
+  --text-6xl: clamp(2.625rem, 1.9rem + 3vw, 3.75rem);
+  --text-7xl: clamp(3rem, 2rem + 4vw, 4.75rem);
+
+  /* Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Containers → max-w-narrow / max-w-prose / max-w-default / max-w-wide */
+  --container-narrow: 720px;
+  --container-prose: 768px;
+  --container-default: 1200px;
+  --container-wide: 1440px;
+
+  /* Shadows — raised surfaces only */
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.06);
+  --shadow-2: 0 4px 12px rgb(0 0 0 / 0.08);
+  --shadow-3: 0 12px 32px rgb(0 0 0 / 0.12);
+
+  /* Motion easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
+/* Tokens with no Tailwind theme namespace — plain custom properties,
+   consumed via var() or the arbitrary-value syntax e.g. z-(--z-header). */
+:root {
+  --dur-fast: 150ms;
+  --dur-base: 250ms;
+  --dur-slow: 400ms;
+
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-brand-accent);
+  --gradient-brand: linear-gradient(135deg, var(--color-brand-primary), var(--color-brand-dark));
+
+  --z-raised: 10;
+  --z-sticky: 100;
+  --z-header: 200;
+  --z-overlay: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 32px;
+}
+
+@media (prefers-reduced-motion: reduce) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+/* Visible focus is never removed (WCAG 2.4.7) */
+:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }

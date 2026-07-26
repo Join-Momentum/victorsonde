@@ -1,0 +1,14 @@
+# Default owner for everything until per-path owners are named
+# (10-quality-and-launch.md §5F — governance owners are not yet assigned).
+* @LeviUdoh-17
+
+# Compliance-owned: content/financial/** cannot be approved without the
+# compliance owner's review (08-technical.md §3, 05-key-pages.md §4).
+# TODO: replace with the actual named compliance owner's GitHub handle.
+/content/financial/ @LeviUdoh-17
+
+# Verification-owned: metrics and testimonials need the verification
+# owner's sign-off before publish (08-technical.md §3).
+# TODO: replace with the actual named verification owner's GitHub handle.
+/content/metrics.ts @LeviUdoh-17
+/content/testimonials.ts @LeviUdoh-17

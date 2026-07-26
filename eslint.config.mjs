@@ -1,10 +1,15 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
+  // eslint-config-next already registers the jsx-a11y plugin itself, so we
+  // only merge in the fuller "recommended" ruleset here (not its `plugins`
+  // block) to avoid a duplicate-plugin-registration error.
+  { rules: jsxA11y.flatConfigs.recommended.rules },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:
@@ -12,6 +17,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "playwright-report/**",
+    "test-results/**",
+    // Generated at build time by `pagefind` (postbuild script) — vendor
+    // output, not source we own.
+    "public/pagefind/**",
   ]),
 ]);
 

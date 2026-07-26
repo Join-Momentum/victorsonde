@@ -1,0 +1,24 @@
+name: FS compliance expiry check
+
+# Gate 3 of the Financial Resilience compliance architecture
+# (08-technical.md §3): daily check for expired ComplianceRecord approvals.
+# If any are found, this opens an issue AND triggers a rebuild so the
+# render-time gate (ComplianceDisclosure.tsx) removes the content within
+# 24h of expiry without anyone needing to remember to act.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  check-expiry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx tsx scripts/check-fs-expiry.ts
