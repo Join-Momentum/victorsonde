@@ -55,12 +55,21 @@ export default function AboutPage() {
 
       <section>
         <div className="mx-auto max-w-wide px-6 py-16 sm:py-24">
-          <div className="max-w-prose space-y-6">
-            {aboutContent.thesis.map((paragraph, i) => (
-              <p key={i} className="text-lg text-ink sm:text-xl">
-                {paragraph}
-              </p>
-            ))}
+          <div className="lg:grid lg:grid-cols-[0.9fr_2fr] lg:gap-16">
+            <h2 className="text-sm font-semibold tracking-wide text-ink-muted uppercase">The thesis</h2>
+            <div className="mt-6 max-w-prose space-y-6 lg:mt-0">
+              {aboutContent.thesis.map((paragraph, i) =>
+                i === 0 ? (
+                  <p key={i} className="text-2xl leading-snug font-medium text-ink sm:text-3xl">
+                    {paragraph}
+                  </p>
+                ) : (
+                  <p key={i} className="text-lg text-ink opacity-80">
+                    {paragraph}
+                  </p>
+                ),
+              )}
+            </div>
           </div>
         </div>
       </section>

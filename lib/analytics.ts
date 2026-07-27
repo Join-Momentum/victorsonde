@@ -29,3 +29,14 @@ export function track<E extends keyof EventMap>(event: E, params: EventMap[E]): 
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("event", event, params);
 }
+
+/**
+ * Form telemetry (09-seo-analytics-crm.md §2.2) and the per-route
+ * `{route}_submit` conversion events are dynamically named — there's no
+ * finite union to type them against, so this escape hatch exists
+ * specifically for those. Prefer `track()` for anything in `EventMap`.
+ */
+export function trackDynamic(event: string, params: Record<string, unknown>): void {
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", event, params);
+}

@@ -38,3 +38,16 @@ export function breadcrumbList(items: { name: string; url: string }[]): JsonLdOb
     })),
   };
 }
+
+/** Must be built from the exact same array passed to <FaqAccordion items>. */
+export function faqPageSchema(items: { q: string; a: string }[]): JsonLdObject {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+}

@@ -758,6 +758,51 @@ export interface AudienceRoute {
 }
 
 // ---------------------------------------------------------------------------
+// Legal / utility pages (02-sitemap.md §5) — shared template. `body`
+// absent on a section means real legal text hasn't been supplied yet; the
+// template renders an honest "pending" note there rather than
+// [VERIFIED CONTENT REQUIRED] boilerplate copy the section itself isn't
+// entitled to invent (privacy/terms/safeguarding/complaints text is a
+// legal document, not marketing copy — never draft it speculatively).
+// ---------------------------------------------------------------------------
+
+export interface LegalSection {
+  heading: string;
+  body?: string[];
+}
+
+export interface LegalPageContent {
+  seo: Seo;
+  title: string;
+  lastUpdated?: ISODate;
+  sections: LegalSection[];
+}
+
+// ---------------------------------------------------------------------------
+// Campaign Landing Template (`/c/[slug]`, 02-sitemap.md §3.10) — one page,
+// one action, no global nav. Isolated from the rest of the sitemap
+// taxonomy on purpose (01-strategy.md §1.2).
+// ---------------------------------------------------------------------------
+
+export interface CampaignOfferBlock {
+  heading: string;
+  body: string;
+}
+
+export interface Campaign {
+  slug: string;
+  audience: string;
+  utmDefaults?: Record<string, string>;
+  hero: Hero;
+  proof?: { type: "metric" | "testimonial" | "logo"; content: string };
+  offerBlocks: CampaignOfferBlock[]; // max 3
+  conversion: { type: "form" | "cta"; formRoute?: string; cta?: CtaRef };
+  faq?: { q: string; a: string }[];
+  expiry?: ISODate;
+  thankYouPath: string;
+}
+
+// ---------------------------------------------------------------------------
 // Site singleton (content/site.ts)
 // ---------------------------------------------------------------------------
 

@@ -66,8 +66,11 @@ export function Hero({
     // Editorial/asymmetric treatment (07-design-system.md §3.1 rule 1:
     // "asymmetric grids, generous whitespace... pull-quote moments. Not
     // card-soup"). Headline runs wide top-left; supporting copy reads as a
-    // pull-quote bottom-right; a large, very-low-opacity brand icon bleeds
-    // off the right edge as texture rather than decoration-for-its-own-sake.
+    // pull-quote bottom-right; the brand icon bleeds off the edge as
+    // texture — tucked into a rotated top-right corner on mobile (where
+    // it's the only graphic element on the page, so it needs to actually
+    // read) and opening out into the large, quieter right-bleed treatment
+    // on desktop.
     return (
       <section className="relative overflow-hidden border-b border-border">
         <Image
@@ -76,19 +79,25 @@ export function Hero({
           width={809}
           height={932}
           aria-hidden="true"
-          className="pointer-events-none absolute top-1/2 -right-32 hidden w-[34rem] -translate-y-1/2 opacity-[0.05] lg:block"
+          className={clsx(
+            "pointer-events-none absolute -top-8 -right-8 w-40 rotate-12 opacity-[0.09]",
+            "sm:-top-10 sm:-right-10 sm:w-56",
+            "lg:top-1/2 lg:-right-32 lg:w-[34rem] lg:rotate-0 lg:-translate-y-1/2 lg:opacity-[0.035]",
+          )}
         />
-        <div className="relative mx-auto max-w-wide px-6 py-24 sm:py-32">
+        <div className="relative mx-auto max-w-wide px-6 py-20 sm:py-32">
           {eyebrow && (
-            <p className="mb-6 text-sm font-semibold tracking-wide text-brand-primary uppercase">{eyebrow}</p>
+            <p className="mb-6 inline-block rounded-full bg-brand-primary-tint px-3 py-1 text-sm font-semibold text-brand-dark">
+              {eyebrow}
+            </p>
           )}
           <div className="lg:grid lg:grid-cols-[1.3fr_0.7fr] lg:items-end lg:gap-12">
-            <h1 className="max-w-4xl text-6xl leading-[0.98] font-semibold tracking-tight text-ink sm:text-7xl">
+            <h1 className="max-w-4xl text-5xl leading-[1.02] font-semibold tracking-tight text-ink sm:text-7xl lg:leading-[0.98]">
               {headline}
             </h1>
-            <div className="mt-10 flex flex-col gap-6 lg:mt-0 lg:pb-2">
+            <div className="mt-8 flex flex-col gap-6 lg:mt-0 lg:pb-2">
               {supportingCopy && (
-                <p className="max-w-sm border-l-2 border-brand-primary pl-4 text-lg text-ink opacity-80">
+                <p className="max-w-sm rounded-r-lg border-l-2 border-brand-primary bg-brand-primary-tint/50 py-3 pl-4 text-lg text-ink opacity-90">
                   {supportingCopy}
                 </p>
               )}

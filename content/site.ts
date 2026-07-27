@@ -63,6 +63,7 @@ export const siteConfig: SiteConfig = {
         links: [
           { label: "About", href: "/about" },
           { label: "Impact Portfolio", href: "/portfolio" },
+          { label: "Impact & Philanthropy", href: "/impact" },
           { label: "Speaking", href: "/speaking" },
           { label: "Insights", href: "/insights" },
           { label: "Contact", href: "/contact" },
