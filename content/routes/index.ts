@@ -8,6 +8,10 @@ import { cbEmployerRoute } from "./cb-employer";
 import { demoRoute } from "./demo";
 import { advisoryRoute } from "./advisory";
 import { generalRoute } from "./general";
+import { dilChallengeRoute } from "./dil-challenge";
+import { dilMentorRoute } from "./dil-mentor";
+import { dilSponsorRoute } from "./dil-sponsor";
+import { dilCityRoute } from "./dil-city";
 
 /** Registry of every LeadRoute, keyed by `route` — used by the API route handler and EnquiryWizard. */
 export const leadRoutes: Record<string, LeadRoute> = Object.fromEntries(
@@ -21,6 +25,10 @@ export const leadRoutes: Record<string, LeadRoute> = Object.fromEntries(
     demoRoute,
     advisoryRoute,
     generalRoute,
+    dilChallengeRoute,
+    dilMentorRoute,
+    dilSponsorRoute,
+    dilCityRoute,
   ].map((route) => [route.route, route]),
 );
 

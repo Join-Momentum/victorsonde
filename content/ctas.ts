@@ -13,6 +13,10 @@ export const ctas: Cta[] = [
   { id: "cta.dil.mentor", label: "Become a Mentor", href: "/design-intelligence-lab#mentor" },
   { id: "cta.dil.challenge", label: "Submit a Challenge", href: "/design-intelligence-lab#challenge" },
   { id: "cta.dil.city", label: "Bring the Lab to My City", href: "/design-intelligence-lab#city" },
+  // No dedicated "dil-employer" route exists yet (04-design-intelligence-lab.md
+  // §21 names one, but content/routes/README.md doesn't list it as built) —
+  // routes to the general contact router in the meantime.
+  { id: "cta.dil.university", label: "Become a University Partner", href: "/contact" },
   { id: "cta.demo", label: "Request a Demo", href: "/ventures/evidentize#demo" },
   { id: "cta.speaking", label: "Enquire About Booking", href: "/speaking#enquire" },
   { id: "cta.advisory", label: "Enquire About Advisory", href: "/advisory#enquire" },

@@ -829,3 +829,112 @@ export interface SiteConfig {
   announcement?: Announcement;
   social: { platform: string; url: string }[];
 }
+
+// ---------------------------------------------------------------------------
+// Design Intelligence Lab (`/design-intelligence-lab`,
+// 04-design-intelligence-lab.md) — Tier-1 flagship, 34 sections. Same
+// discipline as AboutContent/StoryContent: fields the spec tags
+// [VERIFIED CONTENT REQUIRED] or [MEDIA REQUIRED] stay optional here and
+// are left undefined in content/pages/dil.ts rather than invented — see
+// that file's doc comment for the section-by-section reasoning.
+// ---------------------------------------------------------------------------
+
+/**
+ * Drives the hero CTA, sticky mobile CTA and the §30 apply/waitlist
+ * section with no code deploy (04-design-intelligence-lab.md, page-level
+ * state machine). `announce` = waitlist only; `applications_open` = full
+ * application, per-city windows; `cohort_running` = waitlist + showcase;
+ * `between_cohorts` = waitlist only, framed as "next cohort."
+ */
+export type ProgrammeState = "announce" | "applications_open" | "cohort_running" | "between_cohorts";
+
+export interface ProblemGap {
+  title: string;
+  body: string;
+}
+
+/**
+ * One of the 4 capability frameworks (§6–9). `applicationLine`
+ * ("in the Lab you will…") and `microExample` are spec-mandated fields
+ * with no spec-given copy to fill them — left undefined rather than
+ * invented, same as Track.challengeFraming in content/tracks.ts.
+ */
+export interface DilFrameworkPanel {
+  slug: string;
+  name: string;
+  stages: string[];
+  applicationLine?: string;
+  microExample?: string;
+}
+
+/**
+ * §10 "Who it's for." `fitLine` is optional and left undefined until real
+ * copy exists — the persona only becomes an expandable/detailed card once
+ * it has one, same "no fake affordance" rule JourneyDiagram already
+ * follows for stages without detail (components/ui/JourneyDiagram.tsx).
+ */
+export interface DilPersona {
+  title: string;
+  fitLine?: string;
+}
+
+/**
+ * §11 eligibility. `detail` is the actual threshold/policy value — several
+ * are [VERIFIED CONTENT REQUIRED] in spec (diaspora policy, hours/week,
+ * language level) and stay undefined until confirmed; the checklist still
+ * surfaces the category honestly rather than omitting the whole item.
+ */
+export interface DilEligibilityItem {
+  label: string;
+  detail?: string;
+}
+
+/** §24 sponsor tiers — package specifics are [VERIFIED CONTENT REQUIRED], left undefined. */
+export interface DilSponsorTier {
+  name: string;
+  description?: string;
+}
+
+export interface DilInvolvementCopy {
+  heading: string;
+  body: string;
+  waysIn?: string[];
+  ctaId: string;
+  ctaHref?: string;
+  ctaLabel?: string;
+}
+
+export interface DilPageContent {
+  seo: Seo;
+  programmeState: ProgrammeState;
+  hero: Hero;
+  /** §2 — copy direction only in spec, no quoted line; deliberately no statistic ([METRIC REQUIRED], never publish uncited numbers). */
+  africanOpportunityStatement: { title: string; body: string };
+  problemGaps: ProblemGap[]; // exactly 3 — proof / practice / pathway
+  proposition: string;
+  definition: { body: string; capabilities: string[] }; // the five-petal list
+  frameworks: DilFrameworkPanel[]; // exactly 4 — design thinking, systems thinking, decision intelligence, responsible AI
+  responsibleAiPrinciples: string[];
+  personas: DilPersona[];
+  eligibility: DilEligibilityItem[];
+  methodology: { steps: string[]; ventureLinkNote: string };
+  /** §15 — explicitly illustrative, never a past cohort result. */
+  exampleChallenge: { trackSlug: string; prompt: string; label: string };
+  portfolioOutputs: string[];
+  assessment: { stack: string[]; rubricDimensions: string[]; rubricNote?: string };
+  verification: { body: string; nonAccreditationNote: string };
+  mentorModel: { mentorRole: string; reviewerRole: string; vettingNote: string };
+  /** [VERIFIED CONTENT REQUIRED: community platform + actual model] — section omitted while undefined. */
+  cohortCommunity?: string;
+  involvement: {
+    employer: DilInvolvementCopy;
+    government: DilInvolvementCopy;
+    university: DilInvolvementCopy;
+  };
+  sponsorTiers: DilSponsorTier[];
+  cityPartnership: { body: string };
+  demoDay: string;
+  successStoriesEmptyState: string;
+  /** [VERIFIED CONTENT REQUIRED: FAQ answers] — section omitted while undefined; FAQPage schema must never render without it (acceptance criterion 3). */
+  faq?: { q: string; a: string }[];
+}

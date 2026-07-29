@@ -64,4 +64,28 @@ export const thankYouContent: Record<string, ThankYouContent> = {
     sla: "Expect scheduling details within 1 business day.",
     nextCta: { label: "Learn about Evidentize", href: "/ventures/evidentize" },
   },
+  "dil-challenge": {
+    heading: "Challenge received.",
+    body: "Thanks for submitting a challenge to the Design Intelligence Lab. Our team will review it and follow up.",
+    sla: "Expect an update within 5 days.",
+    nextCta: { label: "Explore the Impact Portfolio", href: "/portfolio" },
+  },
+  mentor: {
+    heading: "Application received.",
+    body: "Thanks for applying to mentor or review at the Design Intelligence Lab. We'll walk you through vetting steps next.",
+    sla: "Expect an update within 7 days.",
+    nextCta: { label: "Explore the Impact Portfolio", href: "/portfolio" },
+  },
+  "dil-sponsor": {
+    heading: "Enquiry received.",
+    body: "Thanks for your interest in sponsoring a Design Intelligence Lab cohort. We'll send over the sponsor pack.",
+    sla: "Expect a reply within 2 business days.",
+    nextCta: { label: "Explore the Impact Portfolio", href: "/portfolio" },
+  },
+  "dil-city": {
+    heading: "Proposal received.",
+    body: "Thanks for proposing a Design Intelligence Lab city partnership. Our team will review it and follow up.",
+    sla: "Expect an update within 5 days.",
+    nextCta: { label: "Explore the Impact Portfolio", href: "/portfolio" },
+  },
 };
