@@ -36,12 +36,6 @@ export function FounderRationale() {
           image={{ src: images.founderPortrait, alt: "Victor Sonde" }}
           tab="LAB-01"
           title="Founder, Decision Intelligence Lab"
-          rows={[
-            {
-              label: "Note",
-              value: <Todo>Photography of African youth participants needed for this page. See build notes</Todo>,
-            },
-          ]}
         />
       </Split>
     </Band>

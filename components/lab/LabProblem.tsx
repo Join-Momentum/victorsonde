@@ -36,13 +36,6 @@ export function LabProblem() {
           </FrameworkCard>
         ))}
       </Grid>
-      <Card variant="flag" className="mt-[26px]">
-        <Kicker>Proof points</Kicker>
-        <p className="m-0">
-          <Todo>Youth unemployment and underemployment figures for target markets to be sourced and cited before funder meetings.</Todo>{" "}
-          The deck&apos;s population statistics are marked &quot;verify&quot;, so they stay off the site until sourced.
-        </p>
-      </Card>
     </Band>
   );
 }

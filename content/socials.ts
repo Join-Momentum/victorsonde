@@ -13,8 +13,7 @@ const all: Social[] = [
   { platform: "instagram", label: "Instagram", url: "https://www.instagram.com/victorsondeofficial/" },
   { platform: "threads", label: "Threads", url: "https://www.threads.com/@victorsondeofficial" },
   { platform: "facebook", label: "Facebook", url: "https://www.facebook.com/victorsondeglobal" },
-  // TODO(victor): public email address, e.g. "mailto:hello@victorsonde.com".
-  { platform: "email", label: "Email", url: "" },
+  { platform: "email", label: "Email", url: "mailto:growwithvictorsonde@gmail.com" },
 ];
 
 /** Profiles with a confirmed URL, in display order. */

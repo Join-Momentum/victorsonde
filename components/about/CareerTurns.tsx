@@ -15,13 +15,13 @@ export function CareerTurns() {
       </SectionHead>
       <Grid cols={4}>
         <FrameworkCard kicker="Turn one" title="From doing the work to leading it" size="sm">
-          <Todo>Year &amp; detail to confirm</Todo>: moving from delivery practitioner to accountable leader.
+          Moving from delivery practitioner to accountable leader.
         </FrameworkCard>
         <FrameworkCard kicker="Turn two" title="Into public and institutional work" size="sm">
-          <Todo>Detail to confirm</Todo>: transformation where the stakes are public, not commercial.
+          Transformation where the stakes are public, not commercial.
         </FrameworkCard>
         <FrameworkCard kicker="Turn three" title="Teaching, mentoring, speaking" size="sm">
-          <Todo>Detail to confirm</Todo>: realising the bottleneck was access to credible experience.
+          Realising the bottleneck was access to credible experience.
         </FrameworkCard>
         <FrameworkCard kicker="Turn four" title="Building the thing myself" size="sm">
           Founding the ventures behind the simulations and the portfolios.

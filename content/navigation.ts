@@ -5,7 +5,7 @@ export type NavLink = { href: string; label: string };
 export const primaryCta: NavLink = { href: "/cohort", label: "Apply for the Founding Cohort" };
 
 export const mainNav: NavLink[] = [
-  { href: "/cohort", label: "Founding Cohort" },
+  // { href: "/cohort", label: "Founding Cohort" },
   { href: "/lab", label: "The Lab" },
   { href: "/about", label: "About" },
   { href: "/work", label: "Work" },
@@ -15,7 +15,7 @@ export const mainNav: NavLink[] = [
   { href: "/insights", label: "Insights" },
   { href: "/contact", label: "Contact" },
   { href: "/connect", label: "/connect" },
-  { href: "/notes", label: "Notes" },
+  // { href: "/notes", label: "Notes" },
 ];
 
 export const footerColumns: { heading: string; links: NavLink[] }[] = [
@@ -53,8 +53,5 @@ export const footerColumns: { heading: string; links: NavLink[] }[] = [
 ];
 
 export const legalLinks: NavLink[] = [
-  { href: "/legal", label: "Privacy" },
-  { href: "/legal", label: "Terms" },
-  { href: "/legal", label: "Cookies" },
-  { href: "/legal", label: "Accessibility" },
+  { href: "/legal", label: "Terms & Conditions" },
 ];

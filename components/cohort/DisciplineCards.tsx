@@ -34,7 +34,7 @@ export function DisciplineCards() {
               </Link>
             }
           >
-            {d.lede} <Todo>Task list to confirm</Todo>
+            {d.lede} 
           </FrameworkCard>
         ))}
         <FrameworkCard variant="placeholder" kicker="More to come" title="Additional disciplines">

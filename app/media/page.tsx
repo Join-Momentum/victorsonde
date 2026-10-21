@@ -38,18 +38,6 @@ export default function MediaPage() {
       </PageHeader>
       <Band tone="paper">
         <MediaGallery />
-        <Card variant="flag" className="mt-[34px]">
-          <Kicker>Missing from the archive</Kicker>
-          <p className="m-0">
-            Press coverage, podcast appearances and interviews need source links before they can be listed.
-            Photography of Decision Intelligence Lab and Career Bridge participants would strengthen this page
-            considerably. See the{" "}
-            <Link href="/notes" className="text-orange-ink">
-              build notes
-            </Link>
-            .
-          </p>
-        </Card>
       </Band>
     </main>
   );

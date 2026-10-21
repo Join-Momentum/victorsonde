@@ -58,10 +58,6 @@ export function LabPartners() {
           </FrameworkCard>
         ))}
       </Grid>
-      <Label tone="inverse" className="mt-[18px]">
-        Contribution levels and per-participant costs are{" "}
-        <Todo>validated during the pilot; figures not published until confirmed</Todo>
-      </Label>
     </Band>
   );
 }

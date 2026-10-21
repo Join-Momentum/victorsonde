@@ -58,7 +58,6 @@ export function AboutStory() {
             image={{ src: images.founderPortrait, alt: "Victor Sonde" }}
             tab="EX-06"
             title="Founder journey"
-            rows={[{ label: "Note", value: <Todo>Add 2–3 early-career photos for the story section</Todo> }]}
           />
           <EvidenceFigure
             image={{ src: images.taskForceBriefing, alt: "Victor Sonde at a Joint Task Force briefing" }}

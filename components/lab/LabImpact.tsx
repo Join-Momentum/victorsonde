@@ -34,14 +34,6 @@ export function LabImpact() {
           </FrameworkCard>
         ))}
       </Grid>
-      <Card variant="flag" className="mt-[26px]">
-        <Kicker>Measurement</Kicker>
-        <p className="m-0">
-          Decision-confidence lift, portfolio completion, progression to work or enterprise, scenarios completed and
-          alumni ventures launched.{" "}
-          <Todo>Baselines and endline targets are set during the pilot. No numbers published before then.</Todo>
-        </p>
-      </Card>
       <ActionRow margin="mt-8 mb-[30px]">
         <ButtonLink href="/lab" arrow>
           Fund the pilot

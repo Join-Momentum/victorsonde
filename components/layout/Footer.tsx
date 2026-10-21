@@ -50,8 +50,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col justify-between gap-4 pt-8 font-mono text-[.68rem] leading-[1.9] tracking-[.04em] text-legal md:flex-row">
           <p className="m-0 text-legal">
-            <Todo>Registered company names, numbers and addresses to be supplied.</Todo>
-            <br />© 2026 Victor Sonde. Design preview, not the live site.
+            © 2026 Victor Sonde.
           </p>
           <p className="m-0 text-legal">
             {legalLinks.map((link, i) => (

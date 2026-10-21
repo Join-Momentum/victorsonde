@@ -38,15 +38,6 @@ export function SpeakingFormats() {
           <Tag key={a}>{a}</Tag>
         ))}
       </TagList>
-      <Card variant="flag">
-        <Kicker>Past appearances</Kicker>
-        <p className="m-0">
-          <Todo>
-            To be populated from your confirmed list only: event name, date, location, audience. Nothing goes here
-            that can&apos;t be verified.
-          </Todo>
-        </p>
-      </Card>
     </div>
   );
 }

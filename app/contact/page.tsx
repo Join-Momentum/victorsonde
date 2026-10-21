@@ -34,7 +34,7 @@ export default function ContactPage() {
               Direct
             </Label>
             <p className="mt-2">
-              <Todo>Public email address, phone and office details to confirm.</Todo> Response time and who reads the
+              Response time and who reads the
               inbox should be stated here so people know what to expect.
             </p>
             <SocialLinks tone="light" className="mt-5" />

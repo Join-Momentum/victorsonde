@@ -39,16 +39,6 @@ export function HowItWorks() {
             A completed simulation, assessed artefacts, a structured digital portfolio, and a clear account of how you
             made your decisions.
           </FrameworkCard>
-          <Card variant="flag">
-            <Kicker>To confirm before launch</Kicker>
-            <p className="m-0 text-[.98rem]">
-              <Todo>
-                Start date, duration, weekly time commitment, cost or funding, eligibility, cohort size, assessment
-                model and certification status.
-              </Todo>{" "}
-              Nothing is stated here until you&apos;ve confirmed it.
-            </p>
-          </Card>
         </Grid>
       </Split>
     </Band>

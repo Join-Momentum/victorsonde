@@ -15,14 +15,14 @@ export function QuickFacts() {
         rows={[
           ["Name", "Victor Sonde"],
           ["Title", "Founder · product and delivery leader · educator and speaker"],
-          ["Based", <Todo key="based">To confirm</Todo>],
+          ["Based", "United Kingdom"],
           ["Ventures", "Career Bridge Foundation · Evidentize.io · Decision Intelligence Lab · Join Momentum Inc"],
           ["Newsletter", "3,600+ subscribers on LinkedIn"],
           [
             "Speaking topics",
             "Careers and employability · AI and work · delivery leadership · defence and institutional capability",
           ],
-          ["Press contact", <Todo key="press">Email to confirm</Todo>],
+          ["Press contact", "growwithvictorsonde@gmail.com"],
         ]}
       />
     </>

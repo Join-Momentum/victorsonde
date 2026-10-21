@@ -62,8 +62,8 @@ export const legalDocs: LegalDoc[] = [
     content: {
       kind: "statement",
       heading: "Accessibility statement",
-      body: "The build targets WCAG 2.2 AA: semantic structure, keyboard navigation with visible focus, contrast checked against the brand palette, reduced-motion support, captions on video, and forms with labels and clear error states.",
-      todo: "Add the date of the last audit, any known gaps, and a contact route for reporting barriers. That's what makes a statement credible rather than decorative.",
+      body: "The build targets WCAG 2.2 AA: semantic structure, keyboard navigation with visible focus, contrast checked against the brand palette, reduced-motion support, captions on video, and forms with labels and clear error states. If anything on the site is hard to use, email growwithvictorsonde@gmail.com and we'll fix it or get you the information another way.",
+      todo: "Add the date of the last audit and any known gaps. That's what makes a statement credible rather than decorative.",
     },
   },
 ];

@@ -4,6 +4,9 @@ import { Grid } from "@/components/ui/Grid";
 import { SectionHead } from "@/components/ui/SectionHead";
 import { Todo } from "@/components/ui/Todo";
 import { FrameworkCard } from "@/components/shared/FrameworkCard";
+import { socials } from "@/content/socials";
+
+const linkedin = socials.find((s) => s.platform === "linkedin")?.url ?? "/article";
 
 /** Recurring frameworks, then the library of articles, video and podcasts. */
 export function FrameworkLibrary() {
@@ -32,14 +35,16 @@ export function FrameworkLibrary() {
         <FrameworkCard
           kicker={
             <>
-              Article · <Todo>to import</Todo>
+              Article .
             </>
           }
           title="Recent newsletter editions"
           size="sm"
           footer={
             <Link
-              href="/article"
+              href={linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-auto font-mono text-[.7rem] font-medium uppercase tracking-[.18em] text-orange-ink no-underline"
             >
               Open an edition →
