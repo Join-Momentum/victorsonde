@@ -22,7 +22,7 @@ export function ProofInMotion() {
           tab="EX-02"
           title="Joint Task Force briefing"
           rows={[
-            { label: "What", value: 'Institutional capability session — "Working together for a safer future"' },
+            { label: "What", value: 'Institutional capability session, "Working together for a safer future"' },
             { label: "Where", value: <Todo>Location &amp; date to confirm</Todo> },
             { label: "Role", value: "Facilitator / delivery lead" },
           ]}

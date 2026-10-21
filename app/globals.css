@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Any descendant of a dark surface ([data-tone="dark"|"ink"]) — replaces the old `.on-dark .x` selectors */
+/* Any descendant of a dark surface ([data-tone="dark"|"ink"]); replaces the old `.on-dark .x` selectors */
 @custom-variant inv (&:where([data-tone="dark"] *, [data-tone="ink"] *));
 
 @theme {

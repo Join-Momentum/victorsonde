@@ -33,7 +33,7 @@ export function Biographies() {
           <Kicker>Long · 150 words</Kicker>
           <p className="m-0">
             <Todo>
-              Long-form biography to be written and approved by you — including career history, notable programmes
+              Long-form biography to be written and approved by you, including career history, notable programmes
               and current focus.
             </Todo>
           </p>

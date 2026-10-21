@@ -4,7 +4,7 @@ import { CohortHeader } from "@/components/cohort/CohortHeader";
 import { DisciplineCards } from "@/components/cohort/DisciplineCards";
 import { HowItWorks } from "@/components/cohort/HowItWorks";
 
-export const metadata: Metadata = { title: "Founding Cohort — Victor Sonde" };
+export const metadata: Metadata = { title: "Founding Cohort | Victor Sonde" };
 
 export default function CohortPage() {
   return (

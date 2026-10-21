@@ -27,13 +27,13 @@ export function AboutStory() {
             products, programmes and institutions.
           </Lede>
           <p>
-            My professional life started in delivery — the unglamorous discipline of getting complex work across the
+            My professional life started in delivery: the unglamorous discipline of getting complex work across the
             line with real constraints, real stakeholders and real consequences. Digital transformation. Product and
             delivery leadership. Public services. Defence and security capability. AI-enabled products.
           </p>
           <p>
             Somewhere in that work a pattern kept repeating. The people who struggled most to get in weren&apos;t short
-            on ability. They were short on evidence — and nobody was giving them a legitimate way to build any.
+            on ability. They were short on evidence, and nobody was giving them a legitimate way to build any.
           </p>
           <p>
             So I started building it. Career Bridge Foundation to create the work experience and widen access.

@@ -24,7 +24,7 @@ export function EnquiryForm({ form, submitLabel, light, note }: Props) {
   if (state.status === "success") {
     return (
       <p role="status" className="m-0 font-display text-[1.1rem] font-semibold">
-        Thanks — your message has been sent.
+        Thanks, your message has been sent.
       </p>
     );
   }

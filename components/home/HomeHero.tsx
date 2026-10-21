@@ -27,7 +27,7 @@ export function HomeHero() {
               I build people, products and platforms that turn potential into <Mark>proof</Mark>.
             </Display>
             <Lede inverse className="max-w-[46ch]">
-              I&apos;m Victor Sonde. I work across careers, AI, transformation and institutional development —
+              I&apos;m Victor Sonde. I work across careers, AI, transformation and institutional development,
               building the products, programmes and organisations that let people show what they can actually do.
             </Lede>
             <ActionRow margin="mt-10">
@@ -51,7 +51,7 @@ export function HomeHero() {
               sizes="(max-width: 1024px) 520px, 40vw"
               className="relative z-10 shadow-float"
             />
-            <span className={cn(annotation, "-left-3 top-[12%] bg-orange sm:-left-8")}>
+            <span className={cn(annotation, "-left-3 top-[0.1%] bg-orange sm:-left-8")}>
               Applications open → Founding Cohort
             </span>
             <span className={cn(annotation, "-right-2 bottom-[14%] bg-white sm:-right-6")}>

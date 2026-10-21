@@ -12,8 +12,8 @@ export function NamingDecision() {
       </Display>
       <p className="m-0">
         Your brief says <strong>Design</strong> Intelligence Lab. The pitch deck you supplied is titled{" "}
-        <strong>Decision</strong> Intelligence Lab throughout, and the method it describes — diagnose, map, decide,
-        design, feedback, evidence — is literally decision intelligence. This preview uses &quot;Design&quot; because
+        <strong>Decision</strong> Intelligence Lab throughout, and the method it describes (diagnose, map, decide,
+        design, feedback, evidence) is literally decision intelligence. This preview uses &quot;Design&quot; because
         that&apos;s what you wrote, but the name appears in the domain, the deck, funder conversations and every CTA.
         It needs settling before build, not after.
       </p>

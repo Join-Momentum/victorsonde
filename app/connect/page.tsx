@@ -5,7 +5,7 @@ import { ConnectProfile } from "@/components/connect/ConnectProfile";
 import { ConnectStorefront } from "@/components/connect/ConnectStorefront";
 
 export const metadata: Metadata = {
-  title: "Connect — Victor Sonde",
+  title: "Connect | Victor Sonde",
   description: "The Founding Cohort, the Decision Intelligence Lab, the newsletter and every way to work with Victor Sonde.",
 };
 

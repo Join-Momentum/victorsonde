@@ -20,7 +20,7 @@ export function FounderRationale() {
           </Display>
           <Lede>
             For years I&apos;ve built learning, employability and entrepreneurship programmes across Africa, the UK and
-            the diaspora. The pattern never changes: the talent is real, the ambition is real — but the structured
+            the diaspora. The pattern never changes: the talent is real, the ambition is real, but the structured
             thinking that converts ability into opportunity was never taught.
           </Lede>
           <p>
@@ -28,7 +28,7 @@ export function FounderRationale() {
             affordable at scale, and employers everywhere desperate for people who can actually solve problems.
           </p>
           <Quote cite="Victor Sonde" className="mt-7">
-            &quot;The gap isn&apos;t ability. It&apos;s decision architecture — and that can be taught.&quot;
+            &quot;The gap isn&apos;t ability. It&apos;s decision architecture, and that can be taught.&quot;
           </Quote>
         </div>
         <EvidenceFigure
@@ -39,7 +39,7 @@ export function FounderRationale() {
           rows={[
             {
               label: "Note",
-              value: <Todo>Photography of African youth participants needed for this page — see build notes</Todo>,
+              value: <Todo>Photography of African youth participants needed for this page. See build notes</Todo>,
             },
           ]}
         />

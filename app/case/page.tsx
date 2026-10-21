@@ -11,7 +11,7 @@ import { CaseNarrative } from "@/components/case/CaseNarrative";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/lib/images";
 
-export const metadata: Metadata = { title: "Joint task force capability programme — Victor Sonde" };
+export const metadata: Metadata = { title: "Joint task force capability programme | Victor Sonde" };
 
 export default function CasePage() {
   return (

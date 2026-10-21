@@ -16,7 +16,7 @@ export function AboutHeader() {
       </Display>
       <Split cols="1.1fr .9fr" className="items-end">
         <Lede inverse className="max-w-[56ch] pb-[clamp(30px,5vw,70px)]">
-          I&apos;ve spent my career in the gap between what organisations intend and what they actually deliver — and
+          I&apos;ve spent my career in the gap between what organisations intend and what they actually deliver, and
           between what people are capable of and what they can prove. Everything I&apos;ve built since sits in that gap.
         </Lede>
         <Image

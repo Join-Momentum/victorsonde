@@ -21,7 +21,7 @@ export function CohortHeader() {
       </Display>
       <Lede inverse className="max-w-[60ch]">
         Real professional work, in a realistic environment, assessed as you go. You finish with a portfolio that shows
-        an employer what you can do — not a certificate that says you turned up.
+        an employer what you can do, not a certificate that says you turned up.
       </Lede>
       <ActionRow>
         <ButtonLink href="/cohort" arrow>

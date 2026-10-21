@@ -23,7 +23,7 @@ export const waysToWork: PathItem[] = [
   {
     href: "/ventures",
     title: "Defence & security consulting",
-    detail: "Operational readiness, critical systems and strategic advantage — through Join Momentum Inc.",
+    detail: "Operational readiness, critical systems and strategic advantage, through Join Momentum Inc.",
     action: "Enquire →",
   },
   {

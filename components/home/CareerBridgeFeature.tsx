@@ -30,7 +30,7 @@ export function CareerBridgeFeature() {
               {
                 term: "Building",
                 detail:
-                  "The Simulation-Based Work Experience Programme — five disciplines producing assessed evidence portfolios.",
+                  "The Simulation-Based Work Experience Programme: five disciplines producing assessed evidence portfolios.",
               },
               { term: "Serves", detail: "Professionals changing or accelerating careers; employers and programme partners." },
               { term: "My role", detail: "Founder. Programme direction, simulation design, delivery." },

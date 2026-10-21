@@ -1,23 +1,31 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
- * Hidden spam traps read by the form actions: a honeypot people never see, and the time the
- * form became interactive (set after hydration, so a prerendered page never carries a stale value).
+ * Hidden spam traps read by the form actions: a honeypot people never see, and how long the form
+ * was open before sending. The elapsed time is measured in the browser and added as the form data
+ * is built, so it never compares the visitor's clock with the server's.
  */
 export function FormTraps() {
-  const [startedAt, setStartedAt] = useState("");
-  useEffect(() => setStartedAt(String(Date.now())), []);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const form = ref.current?.closest("form");
+    if (!form) return;
+    const openedAt = performance.now();
+    const onFormData = (e: FormDataEvent) => e.formData.set("elapsed", String(Math.round(performance.now() - openedAt)));
+    form.addEventListener("formdata", onFormData);
+    return () => form.removeEventListener("formdata", onFormData);
+  }, []);
+
   return (
-    <>
-      <input type="hidden" name="startedAt" value={startedAt} />
-      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label>
-          Leave this empty
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
-        </label>
-      </div>
-    </>
+    <div ref={ref} aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+      {/* Deliberately meaningless name so browser autofill leaves it alone. */}
+      <label>
+        Leave blank
+        <input type="text" name="vs_hp" tabIndex={-1} autoComplete="off" defaultValue="" />
+      </label>
+    </div>
   );
 }

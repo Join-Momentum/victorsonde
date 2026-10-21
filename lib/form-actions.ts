@@ -3,6 +3,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { fieldError, forms, isEmail, type FormKind, type FormState } from "./forms";
+import { createToken, readToken, siteUrl } from "./subscribe-token";
 
 /**
  * Form handlers. Spam protection: a honeypot field, a minimum completion time and a per-address
@@ -27,10 +28,19 @@ async function rateLimited(): Promise<boolean> {
   return recent.length > MAX_PER_WINDOW;
 }
 
-/** True for submissions that look automated: the hidden field is filled, or the form was sent implausibly fast. */
-function looksAutomated(data: FormData): boolean {
-  const startedAt = Number(data.get("startedAt"));
-  return Boolean(data.get("website")) || !startedAt || Date.now() - startedAt < 2500;
+/**
+ * Why a submission looks automated, or nothing: the hidden field was filled, or the form was sent
+ * implausibly fast. A missing timing value (JavaScript not yet running) is not treated as spam.
+ */
+function automatedReason(data: FormData): string | undefined {
+  if (data.get("vs_hp")) return "honeypot";
+  const elapsed = Number(data.get("elapsed"));
+  if (data.has("elapsed") && elapsed < 2500) return `too fast (${elapsed}ms)`;
+}
+
+/** Drops the submission quietly for the sender, but leaves a trace in the server log. */
+function dropped(kind: string, reason: string) {
+  console.warn(`[forms] ${kind} submission dropped as automated: ${reason}`);
 }
 
 const text = (data: FormData, key: string) => String(data.get(key) ?? "").trim();
@@ -45,13 +55,19 @@ const NOT_CONFIGURED: FormState = {
   message: "This form isn't connected to an inbox yet, so nothing was sent.",
 };
 
-async function resend(path: string, body: unknown) {
+async function resend(path: string, body: unknown, method = "POST") {
   return fetch(`${RESEND}${path}`, {
-    method: "POST",
+    method,
     headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
     body: JSON.stringify(body),
     signal: AbortSignal.timeout(10_000),
   });
+}
+
+/** Status and Resend's error type (e.g. "403 validation_error"), which point at setup problems without exposing sender data. */
+async function describeFailure(res: Response) {
+  const detail = (await res.json().catch(() => null)) as { name?: string } | null;
+  return `Resend responded ${res.status}${detail?.name ? ` ${detail.name}` : ""}`;
 }
 
 /** Validates an enquiry against its definition and emails it to the site inbox. Bind `kind` before use. */
@@ -73,7 +89,11 @@ export async function submitEnquiry(kind: FormKind, _prev: FormState, data: Form
   }
 
   // Drop automated submissions while appearing to succeed.
-  if (looksAutomated(data)) return form.successHref ? redirect(form.successHref) : { status: "success" };
+  const automated = automatedReason(data);
+  if (automated) {
+    dropped(kind, automated);
+    return form.successHref ? redirect(form.successHref) : { status: "success" };
+  }
   if (await rateLimited()) return { ...RATE_LIMITED, values };
 
   const { RESEND_API_KEY, FORMS_TO_EMAIL, FORMS_FROM_EMAIL } = process.env;
@@ -86,7 +106,7 @@ export async function submitEnquiry(kind: FormKind, _prev: FormState, data: Form
   const body = [
     ...lines,
     ...long.map((f) => `\n${f.label}:\n${values[f.name]}`),
-    "\n—\nSent from the contact form on victorsonde.com. Reply to answer the sender directly.",
+    "\n--\nSent from the contact form on victorsonde.com. Reply to answer the sender directly.",
   ].join("\n");
   const topic = values.subject || values.discipline || values.organisation;
 
@@ -95,11 +115,13 @@ export async function submitEnquiry(kind: FormKind, _prev: FormState, data: Form
       from: FORMS_FROM_EMAIL,
       to: FORMS_TO_EMAIL.split(",").map((s) => s.trim()),
       reply_to: values.email,
-      subject: oneLine(`${form.title}${topic ? `: ${topic}` : ""} — ${values.name}`).slice(0, 180),
+      subject: oneLine(`${form.title}${topic ? `: ${topic}` : ""} from ${values.name}`).slice(0, 180),
       // Plain text only, so nothing a sender types can be interpreted as markup.
       text: body,
     });
-    if (!res.ok) throw new Error(`Resend responded ${res.status}`);
+    if (!res.ok) throw new Error(await describeFailure(res));
+    const sent = (await res.json().catch(() => null)) as { id?: string } | null;
+    console.info(`[forms] ${kind} sent via Resend (id ${sent?.id ?? "unknown"})`);
   } catch (error) {
     // Log the failure without any personal data.
     console.error(`[forms] ${kind} delivery failed:`, error instanceof Error ? error.message : "unknown error");
@@ -110,30 +132,116 @@ export async function submitEnquiry(kind: FormKind, _prev: FormState, data: Form
   return { status: "success" };
 }
 
-/** Adds an email address to the Resend contacts list (and segment, when configured) for cohort updates. */
+/** Sends one plain-text email from the site address; throws with Resend's error on failure. */
+async function sendEmail(to: string, subject: string, body: string) {
+  const res = await resend("/emails", { from: process.env.FORMS_FROM_EMAIL, to: [to], subject, text: body });
+  if (!res.ok) throw new Error(await describeFailure(res));
+}
+
+/**
+ * First step of the double opt-in for cohort updates: emails a signed confirmation link. Nothing is
+ * added to Resend until the link is used (see `confirmSubscription`).
+ */
 export async function subscribe(_prev: FormState, data: FormData): Promise<FormState> {
-  const success: FormState = { status: "success", message: "You're on the list. We'll be in touch when there's news." };
+  const success: FormState = {
+    status: "success",
+    message: "Almost there. Check your inbox and click the link to confirm your subscription.",
+  };
   const email = text(data, "email").toLowerCase();
   if (!isEmail(email) || email.length > 200) {
     return { status: "error", message: "Enter a valid email address.", errors: { email: "Enter a valid email address." } };
   }
-  if (looksAutomated(data)) return success;
+  const automated = automatedReason(data);
+  if (automated) {
+    dropped("subscribe", automated);
+    return success;
+  }
   if (await rateLimited()) return RATE_LIMITED;
 
-  const { RESEND_API_KEY, RESEND_SEGMENT_ID } = process.env;
-  if (!RESEND_API_KEY) return NOT_CONFIGURED;
+  const origin = siteUrl();
+  if (!process.env.RESEND_API_KEY || !process.env.FORMS_FROM_EMAIL || !origin) return NOT_CONFIGURED;
 
+  const link = `${origin}/subscribe/confirm?token=${createToken(email)}`;
   try {
-    const res = await resend("/contacts", {
+    await sendEmail(
       email,
-      unsubscribed: false,
-      ...(RESEND_SEGMENT_ID && { segments: [{ id: RESEND_SEGMENT_ID }] }),
-    });
-    // An address that is already a contact is still a successful sign-up from the visitor's side.
-    if (!res.ok && res.status !== 409) throw new Error(`Resend responded ${res.status}`);
+      "Confirm your subscription to Victor Sonde's cohort updates",
+      [
+        "Hi,",
+        "",
+        "Someone (hopefully you) asked to get cohort and launch updates from Victor Sonde: cohort dates, new simulations and Decision Intelligence Lab news.",
+        "",
+        "Confirm your subscription here:",
+        link,
+        "",
+        "The link works for 7 days. If this wasn't you, ignore this email and you won't hear from us again.",
+        "",
+        "--\nVictor Sonde · victorsonde.com",
+      ].join("\n"),
+    );
   } catch (error) {
-    console.error("[forms] subscribe failed:", error instanceof Error ? error.message : "unknown error");
-    return { status: "error", message: "We couldn't add you just now. Try again in a few minutes." };
+    console.error("[forms] subscribe confirmation failed:", error instanceof Error ? error.message : "unknown error");
+    return { status: "error", message: "We couldn't send your confirmation email. Try again in a few minutes." };
   }
   return success;
+}
+
+/**
+ * Second step of the double opt-in: adds the confirmed address to Resend contacts (and the segment,
+ * when configured), then sends a welcome email. Bind `token` before use.
+ */
+export async function confirmSubscription(token: string): Promise<FormState> {
+  const read = readToken(token);
+  if ("error" in read) {
+    return {
+      status: "error",
+      message: read.error === "expired" ? "This link has expired. Sign up again to get a new one." : "This link isn't valid.",
+    };
+  }
+  const { email } = read;
+  const segment = process.env.RESEND_SEGMENT_ID;
+
+  try {
+    const created = await resend("/contacts", {
+      email,
+      unsubscribed: false,
+      ...(segment && { segments: [{ id: segment }] }),
+    });
+    if (!created.ok) {
+      // Already a contact (perhaps unsubscribed earlier): resubscribe them, since they've just confirmed.
+      const path = `/contacts/${encodeURIComponent(email)}`;
+      const updated = await resend(path, { unsubscribed: false }, "PATCH");
+      if (!updated.ok) throw new Error(await describeFailure(updated));
+      if (segment) await resend(`${path}/segments/${segment}`, {});
+    }
+  } catch (error) {
+    console.error("[forms] subscribe confirm failed:", error instanceof Error ? error.message : "unknown error");
+    return { status: "error", message: "We couldn't confirm you just now. Try the link again in a few minutes." };
+  }
+
+  // The subscription stands even if the welcome email fails.
+  await sendEmail(
+    email,
+    "You're on the list",
+    [
+      "Hi,",
+      "",
+      "Thanks for confirming. You're now on the list for cohort and launch updates from Victor Sonde.",
+      "",
+      "What to expect:",
+      "• Founding Cohort dates and when applications open",
+      "• New work simulations as they launch",
+      "• News when the Decision Intelligence Lab opens",
+      "",
+      "Emails only go out when there's something worth sharing, and every update has an unsubscribe link.",
+      "",
+      `While you wait, explore the simulations: ${siteUrl()}/cohort`,
+      "",
+      "--\nVictor Sonde · victorsonde.com",
+    ].join("\n"),
+  ).catch((error) =>
+    console.error("[forms] welcome email failed:", error instanceof Error ? error.message : "unknown error"),
+  );
+
+  return { status: "success" };
 }

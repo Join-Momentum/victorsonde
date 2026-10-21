@@ -11,7 +11,7 @@ import { NotesTable } from "@/components/shared/NotesTable";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { assetRequests, contentToConfirm, versionChanges } from "@/content/notes";
 
-export const metadata: Metadata = { title: "Build notes — Victor Sonde" };
+export const metadata: Metadata = { title: "Build notes | Victor Sonde" };
 
 export default function NotesPage() {
   return (
@@ -21,7 +21,7 @@ export default function NotesPage() {
         eyebrow={<Label tone="inverse">Build notes</Label>}
         title="Decisions, gaps and one naming question"
         titleClassName="mt-3.5 mb-[22px] max-w-[15ch]"
-        lede="Nothing on this preview is invented. Every gap is listed here instead — one thing needs a decision from you before anything is built."
+        lede="Nothing on this preview is invented. Every gap is listed here instead. One thing needs a decision from you before anything is built."
       />
       <Band tone="white">
         <NamingDecision />

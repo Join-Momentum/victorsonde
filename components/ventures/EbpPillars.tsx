@@ -5,7 +5,7 @@ const pillars = [
   },
   {
     name: "BUILD",
-    text: "Turn earning capability into sustainable value — businesses, assets, career capital, reserves and greater financial resilience.",
+    text: "Turn earning capability into sustainable value: businesses, assets, career capital, reserves and greater financial resilience.",
   },
   {
     name: "PROTECT",

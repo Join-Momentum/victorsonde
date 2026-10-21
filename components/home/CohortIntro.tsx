@@ -17,10 +17,10 @@ import { disciplines } from "@/content/disciplines";
 const journey = [
   { title: "Choose your discipline", detail: "Five simulation tracks are open to the founding cohort." },
   { title: "Enter a realistic simulation", detail: "A workplace scenario built from real practice, not a quiz." },
-  { title: "Complete professional tasks", detail: "Plans, analyses, briefings, decisions — the actual artefacts of the role." },
+  { title: "Complete professional tasks", detail: "Plans, analyses, briefings, decisions, the actual artefacts of the role." },
   { title: "Produce evidence", detail: "Your work is captured, structured and assessed as you go." },
   { title: "Build a portfolio", detail: "A credible digital record of capability you can share with anyone." },
-  { title: "Progress towards opportunity", detail: "Interviews, promotions, transitions — with proof attached." },
+  { title: "Progress towards opportunity", detail: "Interviews, promotions, transitions, with proof attached." },
 ];
 
 /** Homepage section 01: the Founding Cohort programme. */
@@ -44,7 +44,7 @@ export function CohortIntro() {
         <div>
           <Lede inverse>
             You don&apos;t get better at the job by reading about the job. Choose a discipline, step into realistic
-            professional work — a live brief, a difficult stakeholder, a deadline — and everything you produce
+            professional work a live brief, a difficult stakeholder, a deadline and everything you produce
             becomes evidence in a portfolio you keep.
           </Lede>
           <Steps steps={journey} className="mt-[26px]" />

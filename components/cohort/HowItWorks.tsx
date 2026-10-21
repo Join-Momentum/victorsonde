@@ -12,10 +12,10 @@ import { FrameworkCard } from "@/components/shared/FrameworkCard";
 const process = [
   { title: "Apply and choose a discipline", detail: "Tell us where you're heading; pick the track that matches." },
   { title: "Get your brief", detail: "A realistic scenario with a client, constraints and a deadline." },
-  { title: "Do the work", detail: "Produce the artefacts the role produces — not multiple-choice answers." },
+  { title: "Do the work", detail: "Produce the artefacts the role produces, not multiple-choice answers." },
   { title: "Get assessed", detail: "Structured feedback on the work and the thinking behind it." },
   { title: "Build the portfolio", detail: "Your evidence is compiled into a shareable, verifiable record." },
-  { title: "Take it to market", detail: "Applications, interviews, promotion conversations — with proof attached." },
+  { title: "Take it to market", detail: "Applications, interviews, promotion conversations, with proof attached." },
 ];
 
 /** The six-step process, who the programme is for, and open logistics questions. */

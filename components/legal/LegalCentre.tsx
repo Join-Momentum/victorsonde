@@ -36,7 +36,7 @@ export function LegalCentre() {
         <Card variant="flag" className="mb-7">
           <Kicker>Not drafted here</Kicker>
           <p className="m-0">
-            Legal copy is yours to supply or have reviewed — I&apos;ve built the page, the navigation and the structure,
+            Legal copy is yours to supply or have reviewed. I&apos;ve built the page, the navigation and the structure,
             not the wording. <Todo>Each document below needs your approved text.</Todo>
           </p>
         </Card>

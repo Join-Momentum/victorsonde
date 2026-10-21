@@ -10,7 +10,7 @@ import { FrameworkCard } from "@/components/shared/FrameworkCard";
 const problems = [
   {
     title: "Survival thinking",
-    text: "When environments are unpredictable, energy goes to getting through today — not to mapping, deciding and building for tomorrow.",
+    text: "When environments are unpredictable, energy goes to getting through today, not to mapping, deciding and building for tomorrow.",
   },
   {
     title: "Unclear pathways",
@@ -40,7 +40,7 @@ export function LabProblem() {
         <Kicker>Proof points</Kicker>
         <p className="m-0">
           <Todo>Youth unemployment and underemployment figures for target markets to be sourced and cited before funder meetings.</Todo>{" "}
-          The deck&apos;s population statistics are marked &quot;verify&quot; — they stay off the site until sourced.
+          The deck&apos;s population statistics are marked &quot;verify&quot;, so they stay off the site until sourced.
         </p>
       </Card>
     </Band>

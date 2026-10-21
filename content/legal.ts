@@ -21,7 +21,7 @@ export const legalDocs: LegalDoc[] = [
         "Who the data controller is, with registered company details",
         "What's collected: application forms, enquiry forms, update-list emails, analytics",
         "Lawful basis for each, and how long each is kept",
-        "Third parties involved — form handler, email provider, analytics, Evidentize.io",
+        "Third parties involved: form handler, email provider, analytics, Evidentize.io",
         "How someone accesses, corrects or deletes their data, and how to complain",
       ],
     },
@@ -63,7 +63,7 @@ export const legalDocs: LegalDoc[] = [
       kind: "statement",
       heading: "Accessibility statement",
       body: "The build targets WCAG 2.2 AA: semantic structure, keyboard navigation with visible focus, contrast checked against the brand palette, reduced-motion support, captions on video, and forms with labels and clear error states.",
-      todo: "Add the date of the last audit, any known gaps, and a contact route for reporting barriers — that's what makes a statement credible rather than decorative.",
+      todo: "Add the date of the last audit, any known gaps, and a contact route for reporting barriers. That's what makes a statement credible rather than decorative.",
     },
   },
 ];

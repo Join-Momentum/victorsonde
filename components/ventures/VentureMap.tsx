@@ -69,8 +69,8 @@ export function VentureMap() {
         ))}
       </Grid>
       <p className="mb-0 mt-[22px] font-mono text-[.78rem] text-muted">
-        One founder, one overarching mission, five distinct vehicles. They are different expressions of the same idea
-        — not five versions of the same thing.
+        One founder, one overarching mission, five distinct vehicles. They are different expressions of the same idea,
+        not five versions of the same thing.
       </p>
     </Band>
   );

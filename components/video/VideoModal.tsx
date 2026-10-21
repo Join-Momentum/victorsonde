@@ -36,7 +36,7 @@ export function VideoModal({ title, onClose }: Props) {
         </Display>
         <p>
           In the build this opens an accessible modal player with keyboard trap, escape-to-close and captions.
-          It&apos;s provider-agnostic — Mux, Vimeo or YouTube can be swapped in from config without touching the
+          It&apos;s provider-agnostic: Mux, Vimeo or YouTube can be swapped in from config without touching the
           component. No autoplay with sound.
         </p>
         <div ref={closeRef}>

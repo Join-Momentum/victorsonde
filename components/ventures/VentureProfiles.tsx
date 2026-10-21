@@ -11,6 +11,7 @@ import { LogoImage } from "@/components/shared/LogoImage";
 import { images } from "@/lib/images";
 import { EbpPillars } from "./EbpPillars";
 import { VentureDetail } from "./VentureDetail";
+import Link from "next/link";
 
 /** One detailed profile per venture. */
 export function VentureProfiles() {
@@ -23,9 +24,9 @@ export function VentureProfiles() {
               <Badge variant="open">Applications open</Badge>
               <LogoImage src={images.careerBridgeLogo} alt="Career Bridge Foundation" className="mb-3 mt-3.5 h-[46px]" />
               <p>
-                The Simulation-Based Work Experience Programme: realistic professional work in five disciplines —
+                The Simulation-Based Work Experience Programme: realistic professional work in five disciplines (
                 product management, business analysis, cyber threat intelligence, project management and virtual
-                administrative assistance — producing assessed evidence portfolios.
+                administrative assistance), producing assessed evidence portfolios.
               </p>
               <ButtonLink href="/cohort" size="sm" arrow>
                 Apply for the Founding Cohort
@@ -47,7 +48,7 @@ export function VentureProfiles() {
               <LogoImage src={images.evidentizeLogo} alt="Evidentize.io" className="mb-3.5 mt-3 h-[34px]" />
               <p>
                 The platform layer: simulation delivery, assessment, and structured portfolio generation. It exists so
-                that evidence of capability is consistent, checkable and portable — for Career Bridge today and the
+                that evidence of capability is consistent, checkable and portable, for Career Bridge today and the
                 Decision Intelligence Lab next.
               </p>
             </>
@@ -91,7 +92,7 @@ export function VentureProfiles() {
               <Lede className="mb-3">Defence &amp; security capability for complex environments.</Lede>
               <p>
                 Join Momentum Inc partners with defence and security stakeholders to strengthen operational readiness,
-                protect critical systems, and maintain strategic advantage across evolving threat landscapes — strategic
+                protect critical systems, and maintain strategic advantage across evolving threat landscapes. Strategic
                 defence, security and intelligence consulting delivered with precision and discretion.
               </p>
               <ButtonLink href="https://www.joinmomentum.io/" external variant="secondary" size="sm" arrow>
@@ -121,9 +122,9 @@ export function VentureProfiles() {
               <Lede className="mb-3">Build a stronger financial life, then protect it.</Lede>
               <p>
                 Three connected dimensions of financial resilience, in one practical framework. It exists to educate,
-                prompt reflection and generate useful insight — not to sell anyone a product.
+                prompt reflection and generate useful insight, not to sell anyone a product.
               </p>
-              <ButtonLink href="/ventures" size="sm" arrow>
+              <ButtonLink href="https://earnbuildprotect.com/" size="sm" arrow>
                 Explore Earn.Build.Protect
               </ButtonLink>
             </>
@@ -137,7 +138,7 @@ export function VentureProfiles() {
             },
             { term: "My role", detail: "Founder." },
             { term: "Philosophy", detail: "Earn more. Build intelligently. Protect what matters." },
-            { term: "Platform", detail: <Todo>Live URL to confirm</Todo> },
+            { term: "Platform", detail: <Link href={'https://earnbuildprotect.com/'}>https://earnbuildprotect.com/</Link > },
           ]}
         >
           <EbpPillars />

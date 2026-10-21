@@ -31,7 +31,7 @@ export function Newsletter() {
         </Display>
         <p className="text-[.96rem] text-sand-2">
           Cohort dates, new simulations, and news when the Decision Intelligence Lab opens. This is not the LinkedIn
-          newsletter — different list, different purpose.
+          newsletter, different list, different purpose.
         </p>
         <SubscribeForm className="mt-3.5" />
       </Card>

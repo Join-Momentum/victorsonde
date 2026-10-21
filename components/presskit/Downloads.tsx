@@ -29,7 +29,7 @@ export function Downloads() {
             Headshot pack
           </Display>
           <p className="text-[.96rem]">
-            Three crops — square, 4:5, 16:9 — at print and web resolution. <Todo>Pack to assemble</Todo>
+            Three crops (square, 4:5, 16:9) at print and web resolution. <Todo>Pack to assemble</Todo>
           </p>
           <Download label="Download .zip" />
         </Card>
@@ -39,7 +39,7 @@ export function Downloads() {
             Logo pack
           </Display>
           <p className="text-[.96rem]">
-            Victor Sonde, Career Bridge Foundation, Evidentize.io and Join Momentum Inc — primary, black, white and
+            Victor Sonde, Career Bridge Foundation, Evidentize.io and Join Momentum Inc: primary, black, white and
             inverted, horizontal and stacked, plus icons. Supplied and in use.
           </p>
           <Download label="Download .zip" />

@@ -8,7 +8,9 @@ import { fontVariables } from "./fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Victor Sonde — design preview v2",
+  title: "Victor Sonde | Founder, product & delivery leader, educator",
+  description:
+    "Victor Sonde builds people, products and platforms that turn potential into proof, working across careers, AI, transformation and institutional development.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

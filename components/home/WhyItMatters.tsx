@@ -25,7 +25,7 @@ export function WhyItMatters() {
       <Split className="items-start">
         <div>
           <Lede>
-            A CV is a claim, written by the person being assessed. A certificate proves you completed a course — it
+            A CV is a claim, written by the person being assessed. A certificate proves you completed a course, it
             rarely proves you can handle the messy middle of a real project. Both are useful. Neither is enough on its
             own.
           </Lede>
@@ -39,7 +39,7 @@ export function WhyItMatters() {
             unverifiable signals.
           </p>
           <p>
-            <strong>Simulations close the gap.</strong> They create real work to point at — and portfolios make that
+            <strong>Simulations close the gap.</strong> They create real work to point at, and portfolios make that
             work visible, structured and checkable. Not a replacement for the CV. The thing that finally backs it up.
           </p>
         </div>

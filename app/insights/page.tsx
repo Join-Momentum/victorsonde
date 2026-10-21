@@ -5,7 +5,7 @@ import { FrameworkLibrary } from "@/components/insights/FrameworkLibrary";
 import { NewsletterFeature } from "@/components/insights/NewsletterFeature";
 import { PageHeader } from "@/components/shared/PageHeader";
 
-export const metadata: Metadata = { title: "Insights — Victor Sonde" };
+export const metadata: Metadata = { title: "Insights | Victor Sonde" };
 
 export default function InsightsPage() {
   return (

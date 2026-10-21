@@ -34,7 +34,7 @@ export function CaseNarrative() {
       <Part label="Decisions I made">
         <p className={body}>
           <Todo>
-            The two or three calls that changed the outcome — what you chose, what you rejected, and why. This is the
+            The two or three calls that changed the outcome: what you chose, what you rejected, and why. This is the
             part readers actually want.
           </Todo>
         </p>

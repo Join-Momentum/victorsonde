@@ -24,7 +24,7 @@ export function LabMethod() {
       </SectionHead>
       <DecisionLoop />
       <Label tone="inverse" className="mt-4">
-        The loop repeats — across life, career, enterprise and community scenarios
+        The loop repeats across life, career, enterprise and community scenarios
       </Label>
       <Grid cols={3} className="mt-[clamp(34px,5vw,56px)]">
         {labCapabilities.map((c, i) => (

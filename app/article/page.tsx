@@ -13,7 +13,7 @@ import { Todo } from "@/components/ui/Todo";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { images } from "@/lib/images";
 
-export const metadata: Metadata = { title: "A CV describes you. Evidence shows you. — Victor Sonde" };
+export const metadata: Metadata = { title: "A CV describes you. Evidence shows you. | Victor Sonde" };
 
 export default function ArticlePage() {
   return (
@@ -37,7 +37,7 @@ export default function ArticlePage() {
         }
         title="A CV describes you. Evidence shows you."
         titleClassName="mt-3 mb-[18px]"
-        lede="Why the hiring signal is broken at both ends — and what actually fixes it."
+        lede="Why the hiring signal is broken at both ends, and what actually fixes it."
         ledeClassName=""
       />
       <Band tone="white" container="narrow" padding="pt-[clamp(30px,4vw,50px)] pb-(--band-y)">
@@ -63,15 +63,15 @@ export default function ArticlePage() {
           Body copy continues at the same measure. Pull quotes, subheadings, images and links all inherit the design
           system, so a long edition reads as comfortably as a short one.
         </p>
-        <Card variant="flag" className="mt-7">
+        {/* <Card variant="flag" className="mt-7">
           <Kicker>Content note</Kicker>
           <p className="m-0">
             <Todo>
-              Real editions to be imported. Nothing is republished in full without your say — the default is an excerpt
+              Real editions to be imported. Nothing is republished in full without your say. The default is an excerpt
               with a link to the LinkedIn original.
             </Todo>
           </p>
-        </Card>
+        </Card> */}
         <Rule className="my-9" />
         <Split>
           <div>

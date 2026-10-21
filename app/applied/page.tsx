@@ -6,7 +6,7 @@ import { Steps } from "@/components/ui/Steps";
 import { Todo } from "@/components/ui/Todo";
 import { StatusScreen } from "@/components/shared/StatusScreen";
 
-export const metadata: Metadata = { title: "Application received — Victor Sonde" };
+export const metadata: Metadata = { title: "Application received | Victor Sonde" };
 
 const nextSteps = [
   { title: "We review your application", detail: <Todo>Timescale to confirm</Todo> },
@@ -23,7 +23,12 @@ export default function AppliedPage() {
         eyebrow={<Badge variant="open">Application received</Badge>}
         title="That's in. Here's what happens next."
         titleSize="d2"
-        lede="You'll get a confirmation email within minutes. If it doesn't arrive, check your spam folder before assuming something broke."
+        lede={
+          <>
+            Your application has reached the cohort team, and the reply will come by email. If you haven&apos;t heard
+            back within <Todo>timescale to confirm</Todo>, check your spam folder.
+          </>
+        }
       >
         <Steps steps={nextSteps} className="mt-7 text-left" />
         <ActionRow margin="mt-[30px]" className="justify-center">

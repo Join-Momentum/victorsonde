@@ -10,7 +10,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/track/[discipline]">): Promise<Metadata> {
   const discipline = findDiscipline((await params).discipline);
-  return { title: `${discipline?.title ?? "Track"} — Victor Sonde` };
+  return { title: `${discipline?.title ?? "Track"} | Victor Sonde` };
 }
 
 export default async function TrackPage({ params }: PageProps<"/track/[discipline]">) {

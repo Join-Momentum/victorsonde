@@ -10,7 +10,7 @@ import { SpeakingHeader } from "@/components/speaking/SpeakingHeader";
 import { SpeakingThemes } from "@/components/speaking/SpeakingThemes";
 import { images } from "@/lib/images";
 
-export const metadata: Metadata = { title: "Speaking — Victor Sonde" };
+export const metadata: Metadata = { title: "Speaking | Victor Sonde" };
 
 export default function SpeakingPage() {
   return (

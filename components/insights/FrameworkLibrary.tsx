@@ -14,14 +14,14 @@ export function FrameworkLibrary() {
       </SectionHead>
       <Grid cols={3}>
         <FrameworkCard kicker="Framework" title="Join → Prove → Progress">
-          How people move from access, to demonstrated capability, to real opportunity — and where most programmes
+          How people move from access, to demonstrated capability, to real opportunity, and where most programmes
           break the chain.
         </FrameworkCard>
         <FrameworkCard kicker="Framework" title="Evidence-based employability">
           Designing careers support around produced work rather than attendance, completion or self-description.
         </FrameworkCard>
         <FrameworkCard kicker="Framework" title="Decision architecture">
-          Diagnose, map, decide, design, feedback, evidence — the loop behind the Decision Intelligence Lab.
+          Diagnose, map, decide, design, feedback, evidence: the loop behind the Decision Intelligence Lab.
         </FrameworkCard>
       </Grid>
 
@@ -57,7 +57,7 @@ export function FrameworkLibrary() {
           title="Latest video"
           size="sm"
         >
-          Thumbnail, duration and modal player — reusable across YouTube, Vimeo or Mux.
+          Thumbnail, duration and modal player, reusable across YouTube, Vimeo or Mux.
         </FrameworkCard>
         <FrameworkCard
           kicker={

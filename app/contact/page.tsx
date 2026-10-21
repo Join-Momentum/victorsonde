@@ -12,7 +12,7 @@ import { PageHeader } from "@/components/shared/PageHeader";
 import { SocialLinks } from "@/components/shared/SocialLinks";
 import { contactRoutes } from "@/content/paths";
 
-export const metadata: Metadata = { title: "Contact — Victor Sonde" };
+export const metadata: Metadata = { title: "Contact | Victor Sonde" };
 
 export default function ContactPage() {
   return (
@@ -23,7 +23,7 @@ export default function ContactPage() {
         eyebrow={<Label tone="inverse">Contact</Label>}
         title="Tell me what you're trying to do"
         titleClassName="mt-3.5 mb-5 max-w-[14ch]"
-        lede="Pick the route that matches — it reaches the right place faster than a general enquiry."
+        lede="Pick the route that matches. It reaches the right place faster than a general enquiry."
         ledeClassName="max-w-[58ch]"
       />
       <Band tone="white">

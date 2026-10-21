@@ -10,7 +10,7 @@ type Props = {
   children?: ReactNode;
 };
 
-/** Section kicker: index number, a short rule, then the label — e.g. "01 ── Why this matters". */
+/** Section kicker: index number, a short rule, then the label, e.g. "01 ── Why this matters". */
 export function Eyebrow({ num, accent, className, children }: Props) {
   return (
     <div

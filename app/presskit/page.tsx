@@ -7,7 +7,7 @@ import { Downloads } from "@/components/presskit/Downloads";
 import { QuickFacts } from "@/components/presskit/QuickFacts";
 import { PageHeader } from "@/components/shared/PageHeader";
 
-export const metadata: Metadata = { title: "Press & speaker kit — Victor Sonde" };
+export const metadata: Metadata = { title: "Press & speaker kit | Victor Sonde" };
 
 export default function PressKitPage() {
   return (

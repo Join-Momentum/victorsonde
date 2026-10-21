@@ -55,7 +55,7 @@ export const mediaItems: MediaItem[] = [
   {
     id: "M-01", kind: "photo", category: "speaking", tab: "M-01",
     image: images.speakingLectern, alt: "Victor Sonde speaking at a lectern",
-    title: "Keynote — evidence-based employability",
+    title: "Keynote: evidence-based employability",
     rows: [{ label: "Where", value: <Todo>Event &amp; date</Todo> }, { label: "Use", value: "Approved for press" }],
   },
   {
@@ -73,7 +73,7 @@ export const mediaItems: MediaItem[] = [
   {
     id: "M-04", kind: "logo", category: "brand", tab: "M-04", surface: "dark", panel: "wide",
     image: images.logoWhite, alt: "Victor Sonde logo, white",
-    title: "Logo — reversed",
+    title: "Logo, reversed",
     rows: [{ label: "Use", value: "Dark backgrounds only" }],
   },
   {
@@ -91,7 +91,7 @@ export const mediaItems: MediaItem[] = [
   {
     id: "M-07", kind: "logo", category: "brand", tab: "M-07", surface: "white", panel: "wide",
     image: images.logoPrimary, alt: "Victor Sonde primary logo",
-    title: "Logo — primary",
+    title: "Logo, primary",
     rows: [{ label: "Use", value: "Light backgrounds · #F19817 + #241A18" }],
   },
   {
@@ -125,19 +125,19 @@ export const mediaItems: MediaItem[] = [
   {
     id: "M-15", kind: "logo", category: "brand", tab: "M-15", surface: "dark", panel: "stacked",
     image: images.joinMomentumStackedDark, alt: "Join Momentum Inc, stacked lockup",
-    title: "Join Momentum — stacked",
+    title: "Join Momentum, stacked",
     rows: [{ label: "Use", value: "Dark backgrounds · square and vertical formats" }],
   },
   {
     id: "M-16", kind: "logo", category: "brand", tab: "M-16", surface: "white", panel: "stacked",
     image: images.joinMomentumStackedLight, alt: "Join Momentum Inc, stacked lockup",
-    title: "Join Momentum — primary stacked",
+    title: "Join Momentum, primary stacked",
     rows: [{ label: "Use", value: "Light backgrounds · #D21215 mark, #0F1235 wordmark" }],
   },
   {
     id: "M-12", kind: "logo", category: "brand", tab: "M-12", surface: "paper", panel: "stacked-roomy",
     image: images.logoStacked, alt: "Victor Sonde stacked logo",
-    title: "Logo — stacked",
+    title: "Logo, stacked",
     rows: [{ label: "Use", value: "Square formats, event programmes" }],
   },
   {

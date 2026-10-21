@@ -36,7 +36,7 @@ export function TrackDetail({ discipline }: { discipline: Discipline }) {
           </Display>
           <Lede>
             You&apos;re dropped into a working scenario with a client, constraints and a deadline. No lectures, no
-            multiple choice — you produce the artefacts the role produces, and they&apos;re assessed as you go.
+            multiple choice. You produce the artefacts the role produces, and they&apos;re assessed as you go.
           </Lede>
           <Card variant="flag" className="mt-5">
             <Kicker>Needs your detail</Kicker>

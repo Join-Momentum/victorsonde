@@ -3,7 +3,7 @@ import { Label } from "@/components/ui/Label";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { CaseList } from "@/components/work/CaseList";
 
-export const metadata: Metadata = { title: "Work & impact — Victor Sonde" };
+export const metadata: Metadata = { title: "Work & impact | Victor Sonde" };
 
 export default function WorkPage() {
   return (

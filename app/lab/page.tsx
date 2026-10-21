@@ -7,7 +7,7 @@ import { LabMethod } from "@/components/lab/LabMethod";
 import { LabPartners } from "@/components/lab/LabPartners";
 import { LabProblem } from "@/components/lab/LabProblem";
 
-export const metadata: Metadata = { title: "Decision Intelligence Lab — Victor Sonde" };
+export const metadata: Metadata = { title: "Decision Intelligence Lab | Victor Sonde" };
 
 export default function LabPage() {
   return (

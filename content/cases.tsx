@@ -17,7 +17,7 @@ export const caseSummaries: CaseSummaryData[] = [
         term: "My remit",
         detail: "Design and facilitate the capability sessions; structure how the work was planned and tracked.",
       },
-      { term: "Decisions", detail: <Todo>Key decisions to confirm — what you changed and why.</Todo> },
+      { term: "Decisions", detail: <Todo>Key decisions to confirm: what you changed and why.</Todo> },
       { term: "Outcome", detail: <Todo>Outcome to confirm. Nothing published unless verifiable and cleared.</Todo> },
     ],
   },
@@ -31,7 +31,7 @@ export const caseSummaries: CaseSummaryData[] = [
     facts: [
       { term: "Problem", detail: "A change programme with clear intent and no reliable path to delivery." },
       { term: "My remit", detail: "Own the delivery: team, roadmap, dependencies, stakeholders, release." },
-      { term: "Decisions", detail: <Todo>Client, sector and specifics to confirm — including what can be named.</Todo> },
+      { term: "Decisions", detail: <Todo>Client, sector and specifics to confirm, including what can be named.</Todo> },
       { term: "Outcome", detail: <Todo>Outcome to confirm.</Todo> },
     ],
   },

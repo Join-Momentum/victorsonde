@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/Label";
 import { MediaGallery } from "@/components/media/MediaGallery";
 import { PageHeader } from "@/components/shared/PageHeader";
 
-export const metadata: Metadata = { title: "Media — Victor Sonde" };
+export const metadata: Metadata = { title: "Media | Victor Sonde" };
 
 export default function MediaPage() {
   return (
@@ -19,7 +19,7 @@ export default function MediaPage() {
         padding="pt-(--band-y) pb-[clamp(34px,5vw,60px)]"
         eyebrow={<Label tone="inverse">Media</Label>}
         title="The archive, and the press kit"
-        lede="Photographs, video, appearances and approved assets — for event organisers, journalists and partners. Every item carries context, not just a caption."
+        lede="Photographs, video, appearances and approved assets for event organisers, journalists and partners. Every item carries context, not just a caption."
       >
         <ActionRow>
           <ButtonLink href="/presskit" size="sm" arrow>
@@ -43,7 +43,7 @@ export default function MediaPage() {
           <p className="m-0">
             Press coverage, podcast appearances and interviews need source links before they can be listed.
             Photography of Decision Intelligence Lab and Career Bridge participants would strengthen this page
-            considerably — see the{" "}
+            considerably. See the{" "}
             <Link href="/notes" className="text-orange-ink">
               build notes
             </Link>

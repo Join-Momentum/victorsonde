@@ -13,13 +13,13 @@ export function CaseList() {
       {caseSummaries.map((c, i) => (
         <CaseSummary key={c.tab} data={c} position={positionOf(i, caseSummaries.length)} />
       ))}
-      <Card variant="flag" className="mt-10">
+      {/* <Card variant="flag" className="mt-10">
         <Kicker>Content note</Kicker>
         <p className="m-0">
           Every case study needs your confirmed detail before launch. Where a client, figure or outcome can&apos;t be
           published, the page carries the shape of the work without inventing the specifics.
         </p>
-      </Card>
+      </Card> */}
     </Band>
   );
 }

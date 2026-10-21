@@ -5,7 +5,7 @@ import { ButtonLink } from "@/components/ui/ButtonLink";
 import { Todo } from "@/components/ui/Todo";
 import { StatusScreen } from "@/components/shared/StatusScreen";
 
-export const metadata: Metadata = { title: "Message sent — Victor Sonde" };
+export const metadata: Metadata = { title: "Message sent | Victor Sonde" };
 
 export default function SentPage() {
   return (
@@ -13,7 +13,7 @@ export default function SentPage() {
       <StatusScreen
         tone="dark"
         eyebrow={<Badge variant="open">Message sent</Badge>}
-        title="Thanks — it's landed."
+        title="Thanks, it's landed."
         titleSize="d2"
         lede={
           <>

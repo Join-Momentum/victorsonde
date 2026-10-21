@@ -37,7 +37,7 @@ export function LabTeaser() {
           </Lede>
           <p>
             The gap it addresses isn&apos;t ability. It&apos;s decision architecture: the structured way of thinking
-            that turns talent into work, enterprise and impact — and that most people were simply never taught.
+            that turns talent into work, enterprise and impact, and that most people were simply never taught.
           </p>
           <p>
             It is built to be measurable, fundable and SDG-aligned from day one, and it is looking for founding

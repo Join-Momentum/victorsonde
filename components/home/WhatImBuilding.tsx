@@ -60,7 +60,7 @@ export function WhatImBuilding() {
             {
               term: "Building",
               detail:
-                "Defence, security and intelligence consulting — operational readiness, protection of critical systems, strategic advantage.",
+                "Defence, security and intelligence consulting, operational readiness, protection of critical systems, strategic advantage.",
             },
             { term: "Serves", detail: "Defence and security stakeholders in complex environments." },
             { term: "My role", detail: "Founder and principal consultant." },
@@ -74,7 +74,7 @@ export function WhatImBuilding() {
             {
               term: "Problem",
               detail:
-                "People are told to earn more and build wealth, and almost never shown how the two connect — or what could undo them.",
+                "People are told to earn more and build wealth, and almost never shown how the two connect, or what could undo them.",
             },
             {
               term: "Building",
